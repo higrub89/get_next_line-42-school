@@ -6,12 +6,14 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:19:20 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/04/03 23:43:09 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:29:12 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+//función toma un string y devuelve la longitud del string hasta el primer salto de línea (\n) o el final de la cadena (\0).
+// Se utiliza para determinar la longitud de la línea que se está leyendo.
 size_t	ft_strget(char *line)
 {
 	size_t	i;
@@ -27,7 +29,9 @@ size_t	ft_strget(char *line)
 	}
 	return (i);
 }
-
+//Esta función toma una cadena de caracteres y un puntero a un entero. 
+//ee la cadena hasta el primer salto de línea o el final de la cadena, asigna memoria para una nueva cadena que contiene la línea leída, y actualiza el entero al que apunta el puntero para reflejar la longitud de la línea.
+//Se utiliza para extraer una línea de una cadena de caracteres.
 char	*read_line(char *line, int *length)
 {
 	char	*stash;
@@ -47,6 +51,9 @@ char	*read_line(char *line, int *length)
 	return (stash);
 }
 
+// Funcion que toma una línea, un búfer, un puntero a un entero que indica la ubicación en la línea, y un descriptor de archivo.
+// Lee del descriptor de archivo en el búfer, procesa la línea en el búfer, y continúa leyendo y procesando hasta que se ha leído una línea completa o se ha alcanzado el final del archivo.
+// Se utiliza para leer líneas de un descriptor de archivo.
 char	*ft_newline(char *line, char *stash, int *locate, int fd)
 {
 	ssize_t	read_bytes;
@@ -76,6 +83,10 @@ char	*ft_newline(char *line, char *stash, int *locate, int fd)
 	return (line);
 }
 
+
+//Toma un descriptor de archivo y utiliza las otras funciones para leer líneas del descriptor de archivo una a la vez.
+//Cada llamada a get_next_line devuelve la siguiente línea del archivo.
+//Esta función es útil para procesar un archivo línea por línea, ya que solo mantiene una línea en memoria a la vez.
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
@@ -96,22 +107,4 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	return (line);
-}
-
-int main(void)
-{
-    int fd = open("file.txt", O_RDONLY);
-    char *line;
-    if (fd == -1)
-    {
-        printf("Error opening file\n");
-        return (1);
-    }
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s\n", line);
-        free(line);
-    }
-    close(fd);
-    return (0);
 }
