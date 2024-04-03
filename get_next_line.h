@@ -5,28 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/23 20:37:52 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/03/24 04:22:30 by rhiguita         ###   ########.fr       */
+/*   Created: 2024/03/17 21:18:57 by rhiguita          #+#    #+#             */
+/*   Updated: 2024/04/03 23:42:45 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
-# include <stddef.h>
+# include <string.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 512
+# endif
+# if BUFFER_SIZE > 125000 || BUFFER_SIZE < 1
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 512
 # endif
 
 char	*get_next_line(int fd);
+size_t	ft_strget(char *line);
+char	*read_line(char *line, int *length);
+char	*fe_newline(char *line, char *stash, int *locate, int fd);
+void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strjoin2(char *ch, char *s1, char *s2);
+char	*ft_strjoin_get(char *s1, char *s2, int *locate);
+void	ft_strlcpy_get(char *dst, const char *src, size_t dstsize);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+int		main();
 
 #endif
