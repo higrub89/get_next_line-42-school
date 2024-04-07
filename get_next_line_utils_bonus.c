@@ -6,9 +6,10 @@
 /*   By: rhiguita <rhiguita@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 21:24:24 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/04/07 21:24:37 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/04/07 22:12:16 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 void ft_bzero(void *s, size_t n)
