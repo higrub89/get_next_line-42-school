@@ -6,7 +6,7 @@
 /*   By: rhiguita <rhiguita@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:18:57 by rhiguita          #+#    #+#             */
-/*   Updated: 2024/04/03 23:42:45 by rhiguita         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:56:20 by rhiguita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 char	*get_next_line(int fd);
 size_t	ft_strget(char *line);
 char	*read_line(char *line, int *length);
-char	*fe_newline(char *line, char *stash, int *locate, int fd);
+char	*ft_newline(char *line, char *stash, int *locate, int fd);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin_get(char *s1, char *s2, int *locate);
