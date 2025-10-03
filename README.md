@@ -31,6 +31,7 @@ El objetivo principal del proyecto get_next_line es implementar la función get_
 ### Modo de Uso
 Para utilizar este proyecto, sigue estos pasos:
 - Clona el repositorio desde GitHub.
+  -- git clone ...
 - Crea una funcion main y vincula el file descriptor.
 - Compila en la terminal y Una vez compilado, ejecuta el programa con los descriptores de archivo deseados.
 
